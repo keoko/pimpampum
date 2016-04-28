@@ -1,10 +1,10 @@
-# pimpampum
+* pimpampum
 
 FIXME: description
 
-## Developing
+** Developing
 
-### Setup
+*** Setup
 
 When you first clone this repository, run:
 
@@ -15,7 +15,7 @@ lein setup
 This will create files for local configuration, and prep your system
 for the project.
 
-### Environment
+*** Environment
 
 To begin developing, start with a REPL.
 
@@ -41,7 +41,7 @@ user=> (reset)
 :resumed
 ```
 
-### Testing
+*** Testing
 
 Testing is fastest through the REPL, as you avoid environment startup
 time.
@@ -57,7 +57,7 @@ But you can also run tests through Leiningen.
 lein test
 ```
 
-### Migrations
+*** Migrations
 
 Migrations are handled by [ragtime][]. Migration files are stored in
 the `resources/migrations` directory, and are applied in alphanumeric
@@ -83,7 +83,7 @@ migrations can be applied.
 
 [ragtime]: https://github.com/weavejester/ragtime
 
-### Generators
+*** Generators
 
 This project has several [generators][] to help you create files.
 
