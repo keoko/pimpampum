@@ -1,20 +1,23 @@
 * Notes
-** DONE set up project pimpampum with duct template
+** DONE set up project pimpampum with duct template 
+   CLOSED: [2016-04-29 Fri 08:16]
 As alternative there are:
 - tesla-microservices from Otto's team: interesting
 - modularity: looks like too green
 - pedestal: too heavy
 - luminus: interesting
+
+** TODO create catalog endpoint
 ** TODO connect to sqlite
 Alternative: postgresql
 ** TODO import feed
 ** TODO export feed
 ** TODO environ configuration
 ** TODO logging with timbre and org.clojure/tools.logging
-** TODO hystrix as circuit breaker
-** TODO metrics
 ** TODO rabbitmq connection Langohr
 ** TODO core.async for component communication
+** TODO hystrix as circuit breaker
+** TODO metrics
 
 
 * Nice to have
@@ -29,3 +32,5 @@ Alternative: postgresql
 
 * Links
 - Microservices with Clojure. [[https://www.innoq.com/en/talks/2016/04/microservice-meetup-clojure/]]
+
+

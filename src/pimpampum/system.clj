@@ -7,7 +7,8 @@
             [duct.middleware.not-found :refer [wrap-not-found]]
             [meta-merge.core :refer [meta-merge]]
             [ring.component.jetty :refer [jetty-server]]
-            [ring.middleware.defaults :refer [wrap-defaults api-defaults]]))
+            [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
+            [pimpampum.endpoint.catalog :refer [catalog-endpoint]]))
 
 (def base-config
   {:app {:middleware [[wrap-not-found :not-found]
@@ -22,8 +23,9 @@
          :app  (handler-component (:app config))
          :http (jetty-server (:http config))
          :db   (hikaricp (:db config))
-         :ragtime (ragtime (:ragtime config)))
+         :ragtime (ragtime (:ragtime config))
+         :catalog-endpoint (endpoint-component catalog-endpoint))
         (component/system-using
          {:http [:app]
-          :app  []
+          :app  [:catalog-endpoint]
           :ragtime [:db]}))))
