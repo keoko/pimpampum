@@ -7,9 +7,17 @@ As alternative there are:
 - pedestal: too heavy
 - luminus: interesting
 
-** TODO create catalog endpoint
-** TODO connect to sqlite
+** DONE create catalog endpoint
+   CLOSED: [2016-04-29 Fri 08:28]
+** DONE connect to sqlite
+   CLOSED: [2016-04-29 Fri 21:43]
 Alternative: postgresql
+** DONE test migrations ragtime
+   CLOSED: [2016-04-29 Fri 21:43]
+alternative migratus
+** DONE db component
+   CLOSED: [2016-05-04 Wed 20:23]
+already prepared -> hicaricp-component
 ** TODO import feed
 ** TODO export feed
 ** TODO environ configuration
@@ -18,7 +26,6 @@ Alternative: postgresql
 ** TODO core.async for component communication
 ** TODO hystrix as circuit breaker
 ** TODO metrics
-
 
 * Nice to have
 ** TODO postgresql database
@@ -32,5 +39,6 @@ Alternative: postgresql
 
 * Links
 - Microservices with Clojure. [[https://www.innoq.com/en/talks/2016/04/microservice-meetup-clojure/]]
+- https://yogthos.net/posts/2015-10-01-Compojure-API.html
 
 

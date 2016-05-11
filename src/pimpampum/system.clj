@@ -8,7 +8,9 @@
             [meta-merge.core :refer [meta-merge]]
             [ring.component.jetty :refer [jetty-server]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
-            [pimpampum.endpoint.catalog :refer [catalog-endpoint]]))
+            [pimpampum.endpoint.catalog :refer [catalog-endpoint]]
+            [pimpampum.component.logger :as logger]
+            [pimpampum.component.repo :as repo]))
 
 (def base-config
   {:app {:middleware [[wrap-not-found :not-found]
@@ -24,8 +26,12 @@
          :http (jetty-server (:http config))
          :db   (hikaricp (:db config))
          :ragtime (ragtime (:ragtime config))
-         :catalog-endpoint (endpoint-component catalog-endpoint))
+         :catalog-endpoint (endpoint-component catalog-endpoint)
+         :logger (logger/make-component)
+         :repo (repo/make-component))
         (component/system-using
          {:http [:app]
           :app  [:catalog-endpoint]
-          :ragtime [:db]}))))
+          :ragtime [:db]
+          :repo [:db]
+          :catalog-endpoint [:repo]}))))

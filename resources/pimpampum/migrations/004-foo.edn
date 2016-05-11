@@ -1,0 +1,2 @@
+{:up ["insert into catalog values (3)"]
+ :down ["delete catalog where id =3"]}

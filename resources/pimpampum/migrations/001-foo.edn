@@ -1,0 +1,2 @@
+{:up ["CREATE TABLE catalog (id int);"]
+ :down ["DROP TABLE catalog;"]}

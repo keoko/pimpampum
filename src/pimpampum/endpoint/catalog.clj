@@ -1,10 +1,11 @@
 (ns pimpampum.endpoint.catalog
-  (:require [compojure.core :refer :all]))
+  (:require [ring.util.response :refer [response]]
+            [compojure.core :refer :all]
+            [pimpampum.component.repo :as r]))
 
 
 (defn catalog-endpoint
-  [conf]
+  [{repo :repo}]
   (context "/catalog" []
-           (GET ["/"] [] {:status 200
-                          :headers {"Content-Type" "text/html"}
-                          :body "Catalog endpoint!"})))
+           (do
+             (GET ["/"] [] (response (r/find-all repo))))))

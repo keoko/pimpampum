@@ -1,0 +1,3 @@
+(def config
+  {:datastore   (jdbc/sql-database {:connection-uri "jdbc:sqlite:test.db"})
+   :migrations (jdbc/load-resources "migrations")})
