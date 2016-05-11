@@ -8,4 +8,5 @@
   [{repo :repo}]
   (context "/catalog" []
            (do
-             (GET ["/"] [] (response (r/find-all repo))))))
+             (GET ["/"] [] (response (r/find-all repo)))
+             (GET ["/add"] [] (response (r/remove-item repo "eeee"))))))
