@@ -14,4 +14,5 @@
            (GET "/:id" [id] (resp (r/find-item repo id)))
            (GET "/" [] (resp (r/find-all repo)))
            (POST "/:id" [id] (resp (r/add-item! repo id)))
-           (PUT "/:id/:new-id" [id new-id] (resp (r/change-item! repo id new-id)))))
+           (PUT "/:id/:new-id" [id new-id] (resp (r/change-item! repo id new-id)))
+           (DELETE "/:id" [id] (resp (r/remove-item! repo id)))))

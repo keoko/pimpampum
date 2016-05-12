@@ -6,7 +6,7 @@
   (find-item [this id])
   (add-item! [this item])
   (change-item! [this item new-item])
-  (remove-item [this item]))
+  (remove-item! [this item]))
 
 (defrecord CatalogRepoComponent [db]
   CatalogRepository
@@ -18,8 +18,8 @@
     (j/insert! (:spec db) :catalog {:id item}))
   (change-item! [this item new-item]
     (j/update! (:spec db) :catalog {:id new-item} ["id = ?" item]))
-  (remove-item [this item]
-    (j/delete! (:spec db) :catalog ["id = ?" 13]))
+  (remove-item! [this item]
+    (j/delete! (:spec db) :catalog ["id = ?" item]))
 
 )
 
