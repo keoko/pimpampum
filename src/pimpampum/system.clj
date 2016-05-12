@@ -8,12 +8,14 @@
             [meta-merge.core :refer [meta-merge]]
             [ring.component.jetty :refer [jetty-server]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
+            [ring.middleware.format :refer [wrap-restful-format]]
             [pimpampum.endpoint.catalog :refer [catalog-endpoint]]
             [pimpampum.component.logger :as logger]
             [pimpampum.component.repo :as repo]))
 
 (def base-config
-  {:app {:middleware [[wrap-not-found :not-found]
+  {:app {:middleware [[wrap-restful-format :formats [:json :edn :yaml :msgpack :msgpack-kw :yaml-in-html :transit-json :transit-msgpack]]
+                      [wrap-not-found :not-found]
                       [wrap-defaults :defaults]]
          :not-found  "Resource Not Found"
          :defaults   (meta-merge api-defaults {})}

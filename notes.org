@@ -44,5 +44,8 @@ already prepared -> hicaricp-component
 * Links
 - Microservices with Clojure. [[https://www.innoq.com/en/talks/2016/04/microservice-meetup-clojure/]]
 - https://yogthos.net/posts/2015-10-01-Compojure-API.html
+chrome
+- Clojure Web Development - state of the art https://touk.pl/blog/2015/09/17/clojure-web-development-state-of-the-art/
+- Clojure Web Development - state of the art - part 2 https://touk.pl/blog/2015/10/20/clojure-web-development-state-of-the-art-part-2/
 
 

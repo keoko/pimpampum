@@ -19,6 +19,7 @@
                  [org.clojure/tools.logging "0.3.1"]
                  [org.clojure/core.async "0.2.374"]
                  [com.netflix.hystrix/hystrix-clj "1.5.2"]
+                 [ring-middleware-format "0.7.0"]
                  [metrics-clojure "2.6.1"]]
   :plugins [[lein-environ "1.0.2"]
             [lein-gen "0.2.2"]]

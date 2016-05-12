@@ -39,4 +39,3 @@
 (defn make-component
   []
   (map->LoggerComponent {}))
-
