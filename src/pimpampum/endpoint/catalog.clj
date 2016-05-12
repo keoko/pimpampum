@@ -4,9 +4,12 @@
             [pimpampum.component.repo :as r]))
 
 
+(defn resp [body]
+  {:headers {"Content-Type" "text/html"}
+   :body body})
+
 (defn catalog-endpoint
   [{repo :repo}]
   (context "/catalog" []
-           (do
-             (GET ["/"] [] (response (r/find-all repo)))
-             (GET ["/add"] [] (response (r/remove-item repo "eeee"))))))
+           (GET "/:id" [id] (resp (r/find-item repo id)))
+           (GET "/" [] (resp (r/find-all repo)))))

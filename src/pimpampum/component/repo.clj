@@ -3,7 +3,8 @@
 
 (defprotocol CatalogRepository
   (find-all [this])
-  (add-item [this item])
+  (find-item [this id])
+  (add-item! [this item])
   (change-item [this item new-item])
   (remove-item [this item]))
 
@@ -11,8 +12,10 @@
   CatalogRepository
   (find-all [this]
     (j/query (:spec db) ["SELECT * FROM catalog"]))
-  (add-item [this item]
-    (j/insert! (:spec db) :catalog {:id 11}))
+  (find-item [this id]
+    (j/query (:spec db) ["SELECT * FROM catalog WHERE id = ?" id]))
+  (add-item! [this item]
+    (j/insert! (:spec db) :catalog {:id item}))
   (change-item [this item new-item]
     (j/update! (:spec db) :catalog {:id 13} ["id = ?" 11]))
   (remove-item [this item]

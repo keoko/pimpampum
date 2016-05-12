@@ -18,11 +18,15 @@ alternative migratus
 ** DONE db component
    CLOSED: [2016-05-04 Wed 20:23]
 already prepared -> hicaricp-component
+** DONE logging with timbre and org.clojure/tools.logging
+   CLOSED: [2016-05-12 Thu 07:45]
+** TODO endpoint parameters
+** TODO handle output format
+** TODO item table
+** TODO rabbitmq connection Langohr
 ** TODO import feed
 ** TODO export feed
 ** TODO environ configuration
-** TODO logging with timbre and org.clojure/tools.logging
-** TODO rabbitmq connection Langohr
 ** TODO core.async for component communication
 ** TODO hystrix as circuit breaker
 ** TODO metrics
