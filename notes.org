@@ -21,7 +21,7 @@ already prepared -> hicaricp-component
 ** DONE logging with timbre and org.clojure/tools.logging
    CLOSED: [2016-05-12 Thu 07:45]
 ** TODO endpoint parameters
-** TODO handle output format
+** TODO handle output format, content and http code
 ** TODO item table
 ** TODO rabbitmq connection Langohr
 ** TODO import feed

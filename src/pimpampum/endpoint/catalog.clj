@@ -12,4 +12,5 @@
   [{repo :repo}]
   (context "/catalog" []
            (GET "/:id" [id] (resp (r/find-item repo id)))
-           (GET "/" [] (resp (r/find-all repo)))))
+           (GET "/" [] (resp (r/find-all repo)))
+           (POST "/:id" [id] (resp (r/add-item! repo id)))))
