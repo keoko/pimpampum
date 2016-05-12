@@ -1,2 +1,2 @@
-{:up ["insert into catalog values (2)"]
- :down ["delete catalog where id =2"]}
+{:up ["insert into item (id, sku, name) values (2, 'sku2', 'name of sku2')"]
+ :down ["delete item where id =2"]}

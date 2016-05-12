@@ -9,7 +9,7 @@
             [ring.component.jetty :refer [jetty-server]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [ring.middleware.format :refer [wrap-restful-format]]
-            [pimpampum.endpoint.catalog :refer [catalog-endpoint]]
+            [pimpampum.endpoint.item :refer [item-endpoint]]
             [pimpampum.component.logger :as logger]
             [pimpampum.component.repo :as repo]))
 
@@ -28,12 +28,12 @@
          :http (jetty-server (:http config))
          :db   (hikaricp (:db config))
          :ragtime (ragtime (:ragtime config))
-         :catalog-endpoint (endpoint-component catalog-endpoint)
+         :item-endpoint (endpoint-component item-endpoint)
          :logger (logger/make-component)
          :repo (repo/make-component))
         (component/system-using
          {:http [:app]
-          :app  [:catalog-endpoint]
+          :app  [:item-endpoint]
           :ragtime [:db]
           :repo [:db]
-          :catalog-endpoint [:repo]}))))
+          :item-endpoint [:repo]}))))

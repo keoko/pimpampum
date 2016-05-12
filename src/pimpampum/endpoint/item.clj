@@ -1,4 +1,4 @@
-(ns pimpampum.endpoint.catalog
+(ns pimpampum.endpoint.item
   (:require [ring.util.response :refer [response]]
             [compojure.core :refer :all]
             [pimpampum.component.repo :as r]))
@@ -8,9 +8,9 @@
   {:headers {"Content-Type" "text/html"}
    :body body})
 
-(defn catalog-endpoint
+(defn item-endpoint
   [{repo :repo}]
-  (context "/catalog" []
+  (context "/item" []
            (GET "/:id" [id] (resp (r/find-item repo id)))
            (GET "/" [] (resp (r/find-all repo)))
            (POST "/:id" [id] (resp (r/add-item! repo id)))
