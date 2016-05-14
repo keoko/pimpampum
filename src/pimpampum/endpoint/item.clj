@@ -1,15 +1,18 @@
 (ns pimpampum.endpoint.item
   (:require [ring.util.response :refer [response]]
             [compojure.core :refer :all]
-            [pimpampum.component.repo :as r]))
+            [pimpampum.component.repo :as r]
+            [pimpampum.component.producer :as p]))
 
 
 (defn resp [body]
   {:body body})
 
 (defn item-endpoint
-  [{repo :repo}]
+  [{:keys [producer repo]}]
   (context "/item" []
+           (POST "/export" [] (p/publish! producer "test 123")
+                 (str "items exported"))
            (GET "/:id" [id] (resp (r/find-item repo id)))
            (GET "/" [] (resp (r/find-all repo)))
            (POST "/" req (let [id (get (:form-params req) "id")

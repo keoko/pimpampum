@@ -9,9 +9,11 @@
             [ring.component.jetty :refer [jetty-server]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [ring.middleware.format :refer [wrap-restful-format]]
+            [system.components.rabbitmq :refer [new-rabbit-mq]]
             [pimpampum.endpoint.item :refer [item-endpoint]]
             [pimpampum.component.logger :as logger]
-            [pimpampum.component.repo :as repo]))
+            [pimpampum.component.repo :as repo]
+            [pimpampum.component.producer :as producer]))
 
 (def base-config
   {:app {:middleware [[wrap-restful-format :formats [:json :edn :yaml :msgpack :msgpack-kw :yaml-in-html :transit-json :transit-msgpack]]
@@ -30,10 +32,13 @@
          :ragtime (ragtime (:ragtime config))
          :item-endpoint (endpoint-component item-endpoint)
          :logger (logger/make-component)
-         :repo (repo/make-component))
+         :repo (repo/make-component)
+         :producer (producer/make-component)
+         :rabbitmq (new-rabbit-mq (:rabbitmq config)))
         (component/system-using
          {:http [:app]
           :app  [:item-endpoint]
           :ragtime [:db]
           :repo [:db]
-          :item-endpoint [:repo]}))))
+          :producer [:rabbitmq]
+          :item-endpoint [:repo :producer]}))))
