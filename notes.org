@@ -20,10 +20,16 @@ alternative migratus
 already prepared -> hicaricp-component
 ** DONE logging with timbre and org.clojure/tools.logging
    CLOSED: [2016-05-12 Thu 07:45]
-** TODO endpoint parameters
+** DONE endpoint parameters
+   CLOSED: [2016-05-14 Sat 22:13]
 ** TODO handle output format, content and http code
-** TODO item table
-** TODO rabbitmq connection Langohr
+** DONE item table
+   CLOSED: [2016-05-14 Sat 22:13]
+** DONE rabbitmq connection Langohr and point-to-point communication
+   CLOSED: [2016-05-14 Sat 22:19]
+** TODO check rabbitmq broadcasting communication
+** TODO check rabbitmq many-to-many topic routing example
+** TODO catalog export to rabbitmq
 ** TODO import feed
 ** TODO export feed
 ** TODO environ configuration
@@ -33,19 +39,25 @@ already prepared -> hicaricp-component
 
 * Nice to have
 ** TODO postgresql database
+** TODO abstract logging
+** TODO abstract bus
 
 * To Read
 - https://github.com/innoq/simple-calendar
 - https://github.com/innoq/simple-contacts
 - https://modularity.org/
 - https://github.com/otto-de/tesla-microservice
+- https://github.com/xsc/kithara
 
+* Notes
+** TODO When you cancel a point-to-point consumer, the queue is deleted. is this the expected behaviour?
+** TODO If the exchange is not created, the consumer cannot connect.
 
 * Links
 - Microservices with Clojure. [[https://www.innoq.com/en/talks/2016/04/microservice-meetup-clojure/]]
 - https://yogthos.net/posts/2015-10-01-Compojure-API.html
-chrome
-- Clojure Web Development - state of the art https://touk.pl/blog/2015/09/17/clojure-web-development-state-of-the-art/
-- Clojure Web Development - state of the art - part 2 https://touk.pl/blog/2015/10/20/clojure-web-development-state-of-the-art-part-2/
-
+- Clojure Web Development - state of the art [[https://touk.pl/blog/2015/09/17/clojure-web-development-state-of-the-art/]]
+- Clojure Web Development - state of the art - part 2 [[https://touk.pl/blog/2015/10/20/clojure-web-development-state-of-the-art-part-2/]]
+- Langohr - Clojure RabbitMQ  [[http://clojurerabbitmq.info/]]
+- A tutorial to Stuart Sierra's Component [[https://christopherdbui.com/a-tutorial-of-stuart-sierras-component-for-clojure/]]
 
